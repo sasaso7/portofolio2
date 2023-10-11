@@ -6,6 +6,7 @@ import Particles from '../scripts/particles.jsx'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
+
 export default function Nextra({ Component, pageProps }) {
   const router = useRouter()
   const [currentClicks, setcurrentClicks] = useState(2)
