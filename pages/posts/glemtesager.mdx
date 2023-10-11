@@ -1,0 +1,49 @@
+---
+title: Glemtesager
+description: Project made in React Native, ReactTS and Firebase. A project about using OSR to scan lost things and help people recover them
+date: 2022/1/3
+tag: web development, school
+author: You
+---
+
+# Glemtesager
+
+<div className="content">
+
+The majority of the clothing in the forgotten boxes in Danish institutions is never picked up. This is a problem for both the environment and the economy. We want to solve this problem by developing a system that makes it easier to track when clothing ends up in the forgotten boxes. Therefore, we will create an app and a website that makes it easy to use the system. Is it possible to improve the retrieval of forgotten clothing, and how can we do it most effectively?
+
+> How do we set up an efficient structure to ensure that the system is easy to build and potentially expand upon?
+
+> How do we create a user-friendly UI to ensure that all types of consumers can use our system without problems?
+
+> How do we implement it in the easiest and most welcoming way in reality?
+
+
+[Read the paper here (in danish)](https://drive.google.com/file/d/1eOApVIUsdIs3UAMKaYBgxKmK3Qb4Ownc/view?usp=sharing)
+
+### Web App: React
+We have selected React to create our website. The main reason for choosing React is its compatibility with Typescript, just like in React Native, potentially allowing us to reuse some code. Additionally, it's convenient that both are written in the same language. Moreover, our team member, Philip, has significant experience with React. React is also one of the most widely used frameworks in the modern web development world, making it a suitable choice for everyone to learn. React doesn't follow a specific programming structure, but it aligns with some of the principles we've learned. There are a few elements in React that resemble Object-Oriented Programming (OOP), which has been our primary focus at KEA. KEA has also taught us a lot about the MVC model, a way of structuring code where the entire codebase is interconnected. We have chosen to deviate entirely from this model since it wouldn't make sense to work with it in React, as it is a true frontend framework and can't follow the MVC model and the elements needed to complete it.
+
+### Mobile App: React Native
+None of us have prior experience in app development. Therefore, we have chosen React Native as the framework for our mobile app. React Native follows a similar structure to React, making it a logical choice for our app development. However, there are still several differences, especially due to the increased permissions required for React Native as it is an app platform. There will also be significant challenges as none of us have developed apps before, but the foundation of the app is built in Java, so we feel confident in diving into it.
+
+### Database: Firestore
+For the database, we have opted to use Google's NoSQL cloud database, Firestore. While our group has minimal experience with Firestore, we recognize the advantages of having a cloud database, especially for scalability. Moreover, Firebase offers a good level of security through Google Authentication. Additionally, Firebase is relatively easy to implement in applications, as it doesn't require much more than a simple key to get started. The major challenge of using Firestore is maintaining a structure, as it is nothing like MySQL, which we have learned in school.
+
+### API: Google Vision
+For the scanner part, we have chosen to utilize Google Vision's API. We investigated its effectiveness in recognizing handwritten text and found a demo version where we could upload an image and receive text results. It quickly became evident that it provided satisfactory results, though not flawless. We plan to enhance the accuracy of the results with our own algorithms, which we will discuss later in the report in the scanner optimization section.
+
+### API: SMS Gateway
+For our SMS gateway, we have opted to use the Danish SMS gateway provider, Inmobile. We chose Inmobile due to their very competitive pricing per sent SMS and a user-friendly API to implement. However, when scaling the project, we will seek the most cost-effective SMS gateway provider that remains reliable, as this is our primary operational cost.
+
+
+## Conclusion
+
+We have made significant progress in our project. We have managed to create a functional prototype that includes key features like the scanner, login functionality, and a website. To address our first problem, we've established a project structure that is easy to understand. Although we haven't strictly followed classical Object-Oriented Programming (OOP), we've still used some aspects of it by defining components as objects in a way. This makes it easier for future development as most objects are isolated and can be placed anywhere and still function.
+
+We've also focused on UI design, which is a crucial aspect of app development. We've ensured that all users use the same login page, and we've paid particular attention to making the scanner user-friendly by designing clear buttons, input fields, and following standard layout design principles.
+
+In terms of implementation in reality, we've hosted our project on a server for universal access and set up CI/CD to ensure users always have the latest version. However, we haven't launched our app on the app store yet, as the prototype isn't ready for all end-users.
+
+Overall, we've achieved what we set out to do in our project, and it's realistic to have a working prototype after two months of development. We've met our goals, and there's been a focus on documenting our work in a report. SCRUM has played a significant role in our project's development.
+</div>

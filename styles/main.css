@@ -48,6 +48,13 @@ h2 {
   }
 }
 
+@media screen and (max-width: 480px) {
+  article {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+}
+
 details summary {
   cursor: pointer;
 }
@@ -55,11 +62,102 @@ details summary {
 img.next-image {
   margin: 0;
 }
+.prose h1 {
+  color: rgb(255, 255, 255);
+}
 
+.prose-sm {
+  padding-bottom: 0;
+}
+
+.prose p {
+  color: rgba(255, 255, 255, 0.85);
+}
 .prose a {
   color: #0074de;
 }
 
 .nav-line .nav-link {
   color: #69778c;
+}
+.nav-line {
+  justify-content: flex-start;
+  .nav-link {
+    margin-left: 0rem !important;
+    margin-right: 0.75rem;
+    padding: 1em;
+    background: rgba(47, 47, 47, 0.282);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(2.5px);
+    transition: 0.6s;
+  }
+}
+
+.nav-link:hover {
+  background: rgba(143, 143, 143, 0.349);
+}
+.boxContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(1, 1, 26);
+  z-index: -1;
+}
+
+.slide-out {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(1, 1, 26, 0);
+  transform-origin: left;
+}
+
+.post-item {
+  /* From https://css.glass */
+  background: rgba(86, 91, 39, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
+  padding: 1em;
+  margin-top: 1em;
+
+  .post-item-title {
+    color: rgb(255, 255, 255);
+  }
+}
+
+.prose h3 {
+  margin-top: 0px !important;
+}
+
+ul {
+  overflow: auto;
+  max-height: 60vh;
+  scrollbar-width: thin;
+}
+
+.content {
+  overflow: auto;
+  height: 65vh;
 }
