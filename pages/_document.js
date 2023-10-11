@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import { Analytics } from '@vercel/analytics/react';
+
 
 export default function Document() {
   const meta = {
@@ -24,7 +24,7 @@ export default function Document() {
         <meta name="twitter:image" content={meta.image} />
       </Head>
       <body>
-        <Analytics/>
+
         <Main />
         <NextScript />
       </body>

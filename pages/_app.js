@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import Particles from '../scripts/particles.jsx'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Analytics } from '@vercel/analytics/react';
 
 
 export default function Nextra({ Component, pageProps }) {
@@ -42,6 +43,7 @@ export default function Nextra({ Component, pageProps }) {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           <Component {...pageProps} />
+          <Analytics/>
         </motion.div>
       </AnimatePresence>
     </>
