@@ -160,4 +160,6 @@ ul {
 .content {
   overflow: auto;
   height: 65vh;
+  min-height: -webkit-fill-available;
+  
 }

@@ -5,17 +5,64 @@ date: 2023/8/1
 tag: web development, professional
 author: You
 ---
-
-# Add to cart
-
 import Image from 'next/image'
 
+# Teoriundervisning.dk
+
+<div className="content">
+
+Teoriundervisning is one of the most successfull driving test theory systems in Denmark
+I worked for Teoriundervisning in the period Nov. 2020 - Aug. 2023 in this time we rebuilt the whole system.
 <Image
-  src="/images/photo2.jpg"
+  src="/images/teori.dk.png"
   alt="Photo"
-  width={1125}
-  height={750}
+  width={325}
+  height={40}
   priority
   className="next-image"
 />
-[Unsplash ↗ ](https://unsplash.com/photos/WeYamle9fDM)
+
+When we started to rebuild Teoriundervisning.dk we had to choose some tools to build the system with.
+As some from the team had experience in MySQL and .NET the choice fell on that. I myself had experience with React.js and therefore we choose that.
+
+So in the end the following tools we used was: 
+- ReactTS
+- GraphQL
+- ASP.NET
+- MySQL
+
+To better explain and structure this explanation i will divide the project in *Frontend* and *Backend* as this was how the project was divided in our workflow
+
+## Frontend
+The frontend consists of a ReactTS project.
+This means that the project is written in *React.js* with the *Typescript* language. I used *SCSS* for styling the project as we used many custom components.
+
+Some notable features i made in the project was:
+- *Advanced Login Flow with 3 different ways to register*
+- *Quiz simulator that displays videos, images and reads questions aloud*
+- *Complete CMS for the Quiz*
+- *Complete Student experience, with tracked content and progress*
+
+These are just a few noted features about the whole system as it is quite big and it would be impossible to explain everything in detail.
+As it is with these huge kind of projects, we were not 100% done with it when i left it. There is always something new to implement and finish up.
+But i left it at a very functional state where it was used by production users
+
+## Backend
+The backend became a bit too complicated according to my opionion.
+What was made was for too big and didn't need all the steps that it has today.
+
+The backend consists of:
+- *GraphQL API for endpoints to frontend*
+- *.NET Application for connection between API and Database*
+- *MySQL database where all the logical operations are inside*
+
+When you place all the logical operations inside the Database via Stored Procedures, there simply is no need for a .NET application to sanitize the inputs.
+With the new technology today you can still sanitize your inputs via Javascript in the API and Stored Procedures only allow the defined types you are putting into them.
+This is why when i became a Fullstack Developer it took a very long time to develop new features as a new feature from the backend to the frontend would pass through 4 different layers.
+
+# Conclusion
+When i was done with project i was relieved, but also grateful for all the things i learned while i developed this project.
+We had a strong team culture and a belief that anything could be built!
+Teoriundervisning.dk will live on without me and be a very successful product in the capable hands of its owners.
+Thanks for everything!
+</div>
