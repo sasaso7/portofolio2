@@ -11,6 +11,7 @@ export default function Particles({
 	refresh = false,
 	currentSize = 2,
 	alphaChosen = 1,
+	shouldCenter = false,
 }) {
 	const canvasRef = useRef(null);
 	const canvasContainerRef = useRef(null);
@@ -25,8 +26,15 @@ export default function Particles({
 		if (canvasRef.current) {
 			context.current = canvasRef.current.getContext("2d");
 		}
-		initCanvas();
-		animate();
+		if(shouldCenter){
+			setTimeout(() => {
+				initCanvas();
+				animate();
+			}, 2000)
+		}else{
+			initCanvas();
+			animate();
+		}
 		window.addEventListener("resize", initCanvas);
 
 		return () => {
@@ -74,8 +82,8 @@ export default function Particles({
 	};
 
 	const circleParams = () => {
-		const x = Math.floor(Math.random() * canvasSize.current.w);
-		const y = Math.floor(Math.random() * canvasSize.current.h);
+		const x = Math.floor(shouldCenter ? canvasSize.current.w/2 : Math.random() * canvasSize.current.w);
+		const y = Math.floor(shouldCenter ? canvasSize.current.h/2 : Math.random() * canvasSize.current.h);
 		const translateX = 0;
 		const translateY = 0;
 		const size = Math.floor(Math.random() * currentSize) + 0.1;
@@ -203,7 +211,7 @@ export default function Particles({
 				);
 			}
 		});
-		window.requestAnimationFrame(animate);
+		window.requestAnimationFrame(animate)
 	};
 
 	return (
