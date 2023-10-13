@@ -13,6 +13,12 @@ export default function Nextra({ Component, pageProps }) {
   const [currentClicks, setcurrentClicks] = useState(2)
   const [stopStress, setstopStress] = useState(false)
 
+  const [animationComplete, setAnimationComplete] = useState(false)
+
+  const handleAnimationComplete = () => {
+    setAnimationComplete(true)
+  }
+
   useEffect(() => {
     setTimeout(() => setstopStress(false), 4000)
   }, [])
@@ -43,24 +49,33 @@ export default function Nextra({ Component, pageProps }) {
       <AnimatePresence>
         <motion.div
           className="slide-out"
-          initial={{ x: "-100%" }}
+          initial={{ x: '-100%' }}
           animate={{ x: 0 }}
-          exit={{ x: "100%" }}
-          transition={{ duration: 2, delay: 0, ease: [0.22, 1, 0.36, 1] }}
+          exit={{ x: '100%' }}
+          transition={{ duration: 2, delay: 2, ease: [0.22, 1, 0.36, 1] }}
         >
           <Component {...pageProps} />
           <Analytics />
         </motion.div>
-        {/* <motion.div
-          className="intro-text"
-          initial={{ x: '-100%' }}
-          animate={{
-            x: ['-100%', '0%', "0%", '100%'],
-          }}
-          transition={{ duration: 3 }}
-        >
-          <div className="head">Philip Meisner Pedersen</div>
-        </motion.div> */}
+        {animationComplete ? null : (
+          <motion.div
+            className="intro-text"
+            style={{ display: animationComplete ? 'none' : 'flex' }}
+          >
+            <motion.div
+              className="head"
+              initial={{x: "-300%"}}
+              animate={{
+                x: ['-300%', '0%', '0%', '300%']
+              }}
+              transition={{ duration: 3 }}
+              onAnimationComplete={handleAnimationComplete}
+            >
+              Philip Meisner Pedersen <br></br>
+              Portofolio
+            </motion.div>
+          </motion.div>
+        )}
       </AnimatePresence>
     </>
   )
