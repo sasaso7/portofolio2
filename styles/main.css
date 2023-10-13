@@ -181,3 +181,20 @@ ul {
     background-color: #00000000;
   }
 }
+
+.separator{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .CV-button{
+    background: rgba(91, 47, 39, 0.244);
+    border-radius: 16px;
+    border: 2px solid rgba(255, 0, 0, 0.23);
+    box-shadow: 0 0px 30px rgba(255, 0, 0, 0.541);
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(2.5px);
+    padding: 1em;
+    color: white;
+    font-size: 1.2em;
+  }
+}
