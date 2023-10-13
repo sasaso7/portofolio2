@@ -122,6 +122,22 @@ export default function Particles({
 		}
 	};
 
+	const drawShootingStar = (circle, update = false) => {
+		if (context.current) {
+			const { x, y, translateX, translateY, size, alpha } = circle;
+			context.current.translate(translateX, translateY);
+			context.current.beginPath();
+			context.current.arc(x * 5, y * 10, size * 2, 0, 2 * Math.PI);
+			context.current.fillStyle = `rgba(255, 255, 1, 100)`;
+			context.current.fill();
+			context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+			if (!update) {
+				circles.current.push(circle);
+			}
+		}
+	}
+
 	const clearContext = () => {
 		if (context.current) {
 			context.current.clearRect(
@@ -209,6 +225,20 @@ export default function Particles({
 					},
 					true,
 				);
+				if(i > 300){
+
+					drawShootingStar(
+						{
+							...circle,
+							x: circle.x,
+							y: circle.y,
+							translateX: circle.translateX,
+							translateY: circle.translateY,
+							alpha: circle.alpha,
+						},
+						true,
+						);
+					}
 			}
 		});
 		window.requestAnimationFrame(animate)
