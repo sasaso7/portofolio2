@@ -8,6 +8,20 @@ author: You
 
 # Easypiecy Link
 
-import Image from 'next/image'
+As CTO of Teoriundervisning.dk I was responsible for finishing Easypiecy Link, a quiz simulator combined with a content-management system.
 
-Not written yet.
+## What it needs
+
+- **Quiz simulator.** Users answer questions and get scored, so the app needs a question model (answers, correct options, categories), session/attempt state and result handling.
+- **Content management.** Editors need to create and maintain questions and content without a developer, which means a CMS-style admin interface with validation and permissions.
+- **API layer.** GraphQL on top of .NET APIs, so the React client asks for exactly the data each view needs instead of many fixed REST endpoints.
+- **Data.** A relational MySQL schema for questions, content and results.
+- **Frontend.** A typed ReactTS application consuming the GraphQL schema.
+
+## My role
+
+A hybrid of developer, product owner and operations: I owned the backlog, built the frontend, structured the backend architecture and ran the releases through Azure DevOps with deployment slots for no-downtime releases.
+
+## Technologies
+
+ReactTS, GraphQL, .NET, MySQL, Azure DevOps.

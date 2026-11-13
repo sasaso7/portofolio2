@@ -71,7 +71,7 @@ export default function Nextra({ Component, pageProps }) {
               transition={{ duration: 3 }}
               onAnimationComplete={handleAnimationComplete}
             >
-              Philip Meisner Pedersen <br></br>
+              Philip Meisner Zwisler <br></br>
               Portofolio
             </motion.div>
           </motion.div>

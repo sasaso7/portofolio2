@@ -1,0 +1,27 @@
+---
+title: Jenkins Exit at Arbejdstilsynet
+description: A self-configuring application setup that made it possible to migrate from Jenkins to Azure DevOps, plus cleanup of legacy servers and environment parity.
+date: 2025/4/1
+tag: Azure DevOps, Jenkins, CI/CD, Infrastructure as Code, Azure App Config, Professional
+author: You
+---
+
+# Jenkins Exit
+
+At Arbejdstilsynet I was part of Team P.I.P.E.L.I.N.E.S. The goal: get rid of a sprawling Jenkins environment and the manual processes that came with it.
+
+## The problem
+
+Years of Jenkins jobs had grown into an environment nobody could fully overview. Deployments depended on hand-maintained job configuration and on state that lived on the servers themselves. Dev, test and production had drifted apart, so a build that passed in one place could fail in another.
+
+## What I did
+
+- **Self-configuring "setup" solution.** I built the mechanism that lets an application configure itself on the server it is deployed to (install, configuration, service registration), instead of Jenkins pushing that configuration. Because each application carries its own setup, a pipeline only has to deliver an artifact and run it. This was the breakthrough that made it possible to start moving away from Jenkins.
+- **Migration to Azure DevOps Pipelines.** With the setup in place, jobs could be moved one by one to YAML pipelines that are versioned together with the code.
+- **Infrastructure cleanup.** Found and removed redundant code and decommissioned outdated servers, which reduced the surface that had to be maintained and patched.
+- **Environment parity.** Worked towards identical dev, test and production environments, so differences come from configuration and not from servers that were set up by hand.
+- **Infrastructure as Code and Azure App Configuration.** Automated manual workflows and introduced Azure App Configuration to keep application settings (keys, labels per environment, feature flags) out of the servers and out of the release artifacts.
+
+## Technologies
+
+Azure DevOps Pipelines, Jenkins, Infrastructure as Code, Azure App Configuration, .NET, Windows/Linux servers.

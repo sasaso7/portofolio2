@@ -1,0 +1,28 @@
+---
+title: Observability Overhaul
+description: Full renovation of a telemetry setup using Jaeger, Grafana, Prometheus and OpenSearch, taking systems from a black box to full insight.
+date: 2025/10/1
+tag: Observability, Grafana, Prometheus, Jaeger, OpenSearch, Professional
+author: You
+---
+
+# Observability Overhaul
+
+At Arbejdstilsynet the systems were close to a black box: when something went wrong, finding out why meant logging into servers and guessing. I renovated the whole telemetry setup.
+
+## The three pillars
+
+- **Metrics: Prometheus and Grafana.** Services expose metrics that Prometheus scrapes, and Grafana dashboards show system health (request rates, error rates, latency, resource usage) so problems show up as trends before they become outages. Alerting rules turn the important signals into notifications.
+- **Traces: Jaeger.** Distributed tracing follows a single request across services, so a slow call can be tied to the exact service or dependency that caused it.
+- **Logs: OpenSearch.** Centralised, searchable logs replace reading files on individual machines. Structured logging with correlation or trace IDs makes it possible to jump from a trace to the matching log lines.
+
+## What it takes
+
+- Instrumenting the applications so they emit consistent metrics, traces and logs, with the same naming across services.
+- Deploying and configuring the telemetry stack itself and keeping it reproducible through Infrastructure as Code.
+- Building dashboards and alerts around what the teams actually need to know, not just everything that can be measured.
+- Making the setup identical across dev, test and production, so what you learn in test holds in production.
+
+## Outcome
+
+The systems went from "black box" to full insight into their health, which shortens the time from incident to cause.

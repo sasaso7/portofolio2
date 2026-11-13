@@ -1,0 +1,31 @@
+---
+title: Wisdome API Transformation
+description: Restructured a social media platform from MVC to a pure .NET API with JWT authentication and Folkemødet integrations.
+date: 2024/7/1
+tag: .NET, JWT, REST API, Professional
+author: You
+---
+
+# Wisdome API Transformation
+
+At Wisdome I was responsible for taking a social media platform from a traditional structure to a modern architecture.
+
+## From MVC to API-first
+
+The application was built as classic server-rendered MVC, where controllers return views. I restructured it into a pure API in .NET:
+
+- Controllers return data (JSON) instead of views, and the business logic is separated from the presentation.
+- Endpoints are consistent in routes, status codes, validation and error responses, so any client can depend on them.
+- The system is ready for future clients (web, mobile or others) without changes to the core.
+
+## JWT authentication
+
+I designed and implemented JWT-based authentication. A user logs in, receives a signed token and sends it with each request. The API validates the signature, expiry and claims, with no server-side session. This fits a multi-client API and scales without shared session state.
+
+## Folkemødet integrations
+
+I built integrations for Folkemødet on Bornholm, including club structures (groups users can create and join) and the API endpoints that support them.
+
+## Technologies
+
+.NET, ASP.NET Core Web API, JWT, REST.

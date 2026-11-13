@@ -1,0 +1,34 @@
+---
+title: DSS Umbraco Migration
+description: Upgrade from the end-of-life Umbraco 8 to Umbraco 20, CI/CD repair in Azure DevOps Pipelines, and documentation of an undocumented project.
+date: 2026/5/1
+tag: Umbraco, .NET, Azure DevOps, CI/CD, Professional
+author: You
+---
+
+# DSS Umbraco Migration
+
+As a consultant for DSS (Herlev Kommune) I helped modernise a platform that had been left on Umbraco 8, a version that is out of support and no longer receives security fixes.
+
+## Why it is a big job
+
+Umbraco 8 runs on .NET Framework, while current Umbraco versions run on modern .NET with a different architecture. The jump is not a simple package update:
+
+- Umbraco 8 can't be upgraded in place to a current version. Content, document types and data have to be migrated, and the code largely has to be rewritten against the new APIs.
+- The backoffice changed, so custom property editors, dashboards and other backoffice extensions have to be rebuilt.
+- Startup, dependency injection, configuration and templating moved to the ASP.NET Core model, so site code and the related .NET APIs need to be adapted as well.
+- Everything has to keep working for the editors and users while the platform is replaced.
+
+I worked in both the Umbraco solution and the .NET APIs it depends on.
+
+## CI/CD cleanup
+
+The Azure DevOps Pipelines had silted up over several years. One of the deployment slots on the machine did not work, and the team had accepted this as normal. I tracked down the cause and got it working again, so deployments could be trusted.
+
+## Overview and documentation
+
+The project was undocumented. I mapped it out, prioritised what had to be done first, and documented the business knowledge and how the Umbraco solution connects to the rest of the codebase. This lets other consultants get started quickly.
+
+## Technologies
+
+Umbraco, .NET, ASP.NET Core, Azure DevOps Pipelines, Azure deployment slots.
