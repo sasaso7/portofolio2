@@ -3,6 +3,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useMousePosition } from "./mouse";
 
+const MOBILE_MAX_WIDTH = 640;
+const MOBILE_MAX_PARTICLES = 150;
+
 export default function Particles({
 	className = "",
 	quantity = 30,
@@ -151,7 +154,10 @@ export default function Particles({
 
 	const drawParticles = () => {
 		clearContext();
-		const particleCount = quantity;
+		const particleCount =
+			typeof window !== "undefined" && window.innerWidth < MOBILE_MAX_WIDTH
+				? Math.min(quantity, MOBILE_MAX_PARTICLES)
+				: quantity;
 		for (let i = 0; i < particleCount; i++) {
 			const circle = circleParams();
 			drawCircle(circle);

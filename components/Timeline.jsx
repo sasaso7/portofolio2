@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 const jobs = [
   {
     role: 'Senior DevOps Engineer',
@@ -77,30 +79,43 @@ const jobs = [
 ]
 
 export default function Timeline() {
+  const [open, setOpen] = useState(null)
+  const toggle = (i) => setOpen((o) => (o === i ? null : i))
   return (
     <ol className="timeline">
-      {jobs.map((j, i) => (
-        <li key={i} className="timeline-item">
-          <div className="timeline-node" tabIndex={0} aria-label={`${j.role}, ${j.org}`}>
-            <span className="timeline-dot" />
-            <div className="timeline-label">
-              <strong>{j.role}</strong>
-              <span>{j.org}</span>
-              <small>{j.period}</small>
+      {jobs.map((j, i) => {
+        const isOpen = open === i
+        return (
+          <li key={i} className="timeline-item">
+            <div className={`timeline-node${isOpen ? ' is-open' : ''}`}>
+              <button
+                type="button"
+                className="timeline-toggle"
+                aria-expanded={isOpen}
+                aria-controls={`timeline-card-${i}`}
+                onClick={() => toggle(i)}
+              >
+                <span className="timeline-dot" aria-hidden="true" />
+                <span className="timeline-label">
+                  <strong>{j.role}</strong>
+                  <span>{j.org}</span>
+                  <small>{j.period}</small>
+                </span>
+              </button>
+              <div id={`timeline-card-${i}`} className="timeline-card">
+                <p>{j.summary}</p>
+                {j.points && (
+                  <ul>
+                    {j.points.map((p, k) => (
+                      <li key={k}>{p}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </div>
-            <div className="timeline-card" role="tooltip">
-              <p>{j.summary}</p>
-              {j.points && (
-                <ul>
-                  {j.points.map((p, k) => (
-                    <li key={k}>{p}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </div>
-        </li>
-      ))}
+          </li>
+        )
+      })}
     </ol>
   )
 }
